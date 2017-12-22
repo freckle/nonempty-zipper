@@ -1,0 +1,19 @@
+name: list-zipper
+
+dependencies:
+  - base
+  - comonad
+  - safe
+
+ghc-options: -Wall
+
+library:
+  source-dirs: library
+
+tests:
+  doctest:
+    main: Main.hs
+    source-dirs: doctest
+    dependencies:
+      - Glob
+      - doctest
