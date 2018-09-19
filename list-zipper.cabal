@@ -1,8 +1,8 @@
--- This file has been generated from package.yaml by hpack version 0.20.0.
+-- This file has been generated from package.yaml by hpack version 0.28.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 04879136695f16c86029614d108e4ce7a9c7ea68d8c72b267897534fce8ebd0d
+-- hash: a0e4d7ab71be7d0a58926a374bb186a29a03841ecab25628c2687f7ac361ed10
 
 name:           list-zipper
 version:        0.0.0
@@ -16,6 +16,7 @@ library
   build-depends:
       base
     , comonad
+    , deepseq
     , safe
   exposed-modules:
       Data.List.NonEmpty.Zipper
@@ -33,6 +34,7 @@ test-suite doctest
       Glob
     , base
     , comonad
+    , deepseq
     , doctest
     , safe
   other-modules:

@@ -1,4 +1,7 @@
+{-# LANGUAGE DeriveAnyClass #-}
 {-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DerivingStrategies #-}
 
 module Data.List.NonEmpty.Zipper
   ( Zipper
@@ -39,11 +42,15 @@ import Prelude hiding (reverse)
 import qualified Prelude
 
 import Control.Comonad
+import Control.DeepSeq (NFData)
 import qualified Data.List.NonEmpty as NE
 import Data.Maybe (fromMaybe)
+import GHC.Generics (Generic)
 import Safe (headMay, tailMay)
 
-data Zipper a = Zipper [a] a [a] deriving (Eq, Show, Functor)
+data Zipper a = Zipper [a] a [a]
+  deriving stock (Eq, Show, Functor, Generic)
+  deriving anyclass (NFData)
 
 instance Foldable Zipper where
   foldMap f (Zipper ls x rs) = foldMap f (Prelude.reverse ls) `mappend` f x `mappend` foldMap f rs

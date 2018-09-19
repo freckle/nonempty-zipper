@@ -4,6 +4,7 @@ dependencies:
   - base
   - comonad
   - safe
+  - deepseq
 
 ghc-options: -Wall
 
