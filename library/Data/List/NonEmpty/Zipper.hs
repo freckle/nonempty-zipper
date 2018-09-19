@@ -32,7 +32,8 @@ module Data.List.NonEmpty.Zipper
   -- * Predicates
   , isStart
   , isEnd
-  ) where
+  )
+where
 
 import Prelude hiding (reverse)
 import qualified Prelude
@@ -109,7 +110,7 @@ rights (Zipper _ _ rs) = rs
 left :: Zipper a -> Maybe (Zipper a)
 left (Zipper ps curr ns) = do
   newCurr <- headMay ps
-  pure $ Zipper (fromMaybe [] $ tailMay ps) newCurr (curr:ns)
+  pure $ Zipper (fromMaybe [] $ tailMay ps) newCurr (curr : ns)
 
 -- | Move the current focus of the cursor to the right
 --
@@ -119,7 +120,7 @@ left (Zipper ps curr ns) = do
 right :: Zipper a -> Maybe (Zipper a)
 right (Zipper ps curr ns) = do
   newCurr <- headMay ns
-  pure $ Zipper (curr:ps) newCurr (fromMaybe [] $ tailMay ns)
+  pure $ Zipper (curr : ps) newCurr (fromMaybe [] $ tailMay ns)
 
 -- | Move the current focus of the cursor to the first occurence of a value on the left
 --
@@ -130,8 +131,8 @@ findLeft :: Eq a => a -> Zipper a -> Maybe (Zipper a)
 findLeft target z@(Zipper ps curr ns)
   | curr == target = Just z
   | otherwise = case ps of
-      [] -> Nothing
-      (x:xs) -> findLeft target (Zipper xs x (curr : ns))
+    [] -> Nothing
+    (x : xs) -> findLeft target (Zipper xs x (curr : ns))
 
 -- | Move the current focus of the cursor to the first occurence of a value on the right
 --
@@ -142,8 +143,8 @@ findRight :: Eq a => a -> Zipper a -> Maybe (Zipper a)
 findRight target z@(Zipper ps curr ns)
   | curr == target = Just z
   | otherwise = case ns of
-      [] -> Nothing
-      (x:xs) -> findRight target (Zipper (curr : ps) x xs)
+    [] -> Nothing
+    (x : xs) -> findRight target (Zipper (curr : ps) x xs)
 
 -- | Move the current focus of the cursor to the start of the @'Zipper'@
 --
@@ -171,8 +172,7 @@ fromNonEmpty ne = Zipper [] (NE.head ne) (NE.tail ne)
 
 fromNonEmptyEnd :: NE.NonEmpty a -> Zipper a
 fromNonEmptyEnd ne = Zipper (NE.tail reversed) (NE.head reversed) []
- where
-  reversed = NE.reverse ne
+  where reversed = NE.reverse ne
 
 toNonEmpty :: Zipper a -> NE.NonEmpty a
 toNonEmpty (Zipper ls x rs) = NE.fromList $ Prelude.reverse ls ++ [x] ++ rs
@@ -199,8 +199,8 @@ replace x (Zipper ls _ rs) = Zipper ls x rs
 --
 delete :: Zipper a -> Maybe (Zipper a)
 delete (Zipper [] _ []) = Nothing
-delete (Zipper ls _ (r:rs)) = Just $ Zipper ls r rs
-delete (Zipper (l:ls) _ rs) = Just $ Zipper ls l rs
+delete (Zipper ls _ (r : rs)) = Just $ Zipper ls r rs
+delete (Zipper (l : ls) _ rs) = Just $ Zipper ls l rs
 
 -- | Insert a value to the left of the cursor
 --
@@ -208,7 +208,7 @@ delete (Zipper (l:ls) _ rs) = Just $ Zipper ls l rs
 -- Zipper [0] 1 [2,3]
 --
 push :: a -> Zipper a -> Zipper a
-push l (Zipper ls x rs) = Zipper (l:ls) x rs
+push l (Zipper ls x rs) = Zipper (l : ls) x rs
 
 -- | Remove a value to the left of the cursor
 --
@@ -220,7 +220,7 @@ push l (Zipper ls x rs) = Zipper (l:ls) x rs
 --
 pop :: Zipper a -> (Zipper a, Maybe a)
 pop (Zipper [] x rs) = (Zipper [] x rs, Nothing)
-pop (Zipper (l:ls) x rs) = (Zipper ls x rs, Just l)
+pop (Zipper (l : ls) x rs) = (Zipper ls x rs, Just l)
 
 -- | Remove a value to the right of the cursor
 --
@@ -232,7 +232,7 @@ pop (Zipper (l:ls) x rs) = (Zipper ls x rs, Just l)
 --
 shift :: Zipper a -> (Zipper a, Maybe a)
 shift (Zipper ls x []) = (Zipper ls x [], Nothing)
-shift (Zipper ls x (r:rs)) = (Zipper ls x rs, Just r)
+shift (Zipper ls x (r : rs)) = (Zipper ls x rs, Just r)
 
 -- | Insert a value to the right of the cursor
 --
@@ -240,7 +240,7 @@ shift (Zipper ls x (r:rs)) = (Zipper ls x rs, Just r)
 -- Zipper [] 1 [4,2,3]
 --
 unshift :: a -> Zipper a -> Zipper a
-unshift r (Zipper ls x rs) = Zipper ls x (r:rs)
+unshift r (Zipper ls x rs) = Zipper ls x (r : rs)
 
 -- | Reverse the zipper keeping the cursor focus intact
 --
