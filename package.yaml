@@ -10,7 +10,7 @@ extra-source-files:
   - README.md
   - CHANGELOG.md
 category: Data, Data Structures
-synopsis: Language tags as specified by BCP 47
+synopsis: A non-empty comonadic list zipper
 description: A non-empty comonadic list zipper
 
 dependencies:
