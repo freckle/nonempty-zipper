@@ -8,7 +8,7 @@ cabal-version: 1.12
 
 name:           nonempty-zipper
 version:        1.0.0.0
-synopsis:       Language tags as specified by BCP 47
+synopsis:       A non-empty comonadic list zipper
 description:    A non-empty comonadic list zipper
 category:       Data, Data Structures
 homepage:       https://github.com/freckle/nonempty-zipper#readme
