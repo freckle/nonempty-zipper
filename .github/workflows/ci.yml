@@ -28,5 +28,4 @@ jobs:
           ${{ runner.os }}-
     - uses: freckle/stack-action@main
       with:
-        stack-yaml: ${{ matrix.stack-yaml }}
         weeder: false
