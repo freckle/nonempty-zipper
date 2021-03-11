@@ -1,14 +1,14 @@
 name: nonempty-zipper
 version: 1.0.0.0
-github:  "freckle/nonempty-zipper"
+github: "freckle/nonempty-zipper"
 license: MIT
 author: "Freckle R&D"
 maintainer: "engineering@freckle.com"
 copyright: "2021 Freckle Education"
 
 extra-source-files:
-- README.md
-- CHANGELOG.md
+  - README.md
+  - CHANGELOG.md
 category: Data, Data Structures
 synopsis: Language tags as specified by BCP 47
 description: A non-empty comonadic list zipper
