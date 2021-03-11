@@ -1,0 +1,49 @@
+version: 2.1
+
+orbs:
+  stack-build: pbrisbin/stack-build@3.0.1
+
+workflows:
+  commit:
+    jobs:
+      - stack-build/build-test-lint:
+          name: "default"
+          stack-arguments: --coverage
+          after-dependencies: [{run: make setup.coverage}]
+          after-test:
+            - run: |
+                if [ -z "$CC_TEST_REPORTER_ID" ]; then
+                  echo "$CC_TEST_REPORTER_ID empty, probably a Fork PR" >&2
+                  echo "Skipping coverage upload" >&2
+                  exit 0
+                fi
+                make coverage.upload
+          hlint-yaml-url: https://raw.githubusercontent.com/pbrisbin/dotfiles/master/hlint.yaml
+          weeder: false
+      - stack-build/build-test-lint:
+          name: "ghc-8.8.2 / lts-15.1"
+          stack-yaml: stack-lts-15.1.yaml
+          hlint: false
+          weeder: false
+      - stack-build/build-test-lint:
+          name: "ghc-8.6.5 / lts-14.16"
+          stack-yaml: stack-lts-14.16.yaml
+          hlint: false
+          weeder: false
+      - stack-build/build-test-nightly:
+          name: "nightly"
+          stack-arguments: >-
+            --ghc-options="-Wno-missing-safe-haskell-mode -Wno-prepositive-qualified-module"
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - stack-build/build-test-nightly:
+          name: "nightly"
+          stack-arguments: >-
+            --ghc-options="-Wno-missing-safe-haskell-mode -Wno-prepositive-qualified-module"

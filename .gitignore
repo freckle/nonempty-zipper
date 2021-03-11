@@ -1,2 +1,3 @@
 .stack-work
 stack.yaml
+bin/cc-test-reporter 
