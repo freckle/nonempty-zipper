@@ -4,18 +4,18 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: dbef081905e7fc0b36041021372ebf3c951c043e05d8f34459ef5a13ad11a1de
+-- hash: e5751b04a0723a5f29bde9aec1863bdf32388d037da33e4e948f89041fd88023
 
 name:           nonempty-zipper
 version:        1.0.0.0
-synopsis:       A non-empty comonadic list zipper
+synopsis:       Language tags as specified by BCP 47
 description:    A non-empty comonadic list zipper
 category:       Data, Data Structures
 homepage:       https://github.com/freckle/nonempty-zipper#readme
 bug-reports:    https://github.com/freckle/nonempty-zipper/issues
 author:         Freckle R&D
 maintainer:     engineering@freckle.com
-copyright:      2021 Freckle Education
+copyright:      2021 Renaissance Learning Inc
 license:        MIT
 license-file:   LICENSE
 build-type:     Simple
