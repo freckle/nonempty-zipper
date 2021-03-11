@@ -1,4 +1,17 @@
-name: list-zipper
+name: nonempty-zipper
+version: 1.0.0.0
+github: "freckle/nonempty-zipper"
+license: MIT
+author: "Freckle R&D"
+maintainer: "engineering@freckle.com"
+copyright: "2021 Renaissance Learning Inc"
+
+extra-source-files:
+  - README.md
+  - CHANGELOG.md
+category: Data, Data Structures
+synopsis: A non-empty comonadic list zipper
+description: A non-empty comonadic list zipper
 
 dependencies:
   - base
