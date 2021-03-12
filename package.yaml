@@ -1,5 +1,5 @@
 name: nonempty-zipper
-version: 1.0.0.0
+version: 1.0.0.1
 github: "freckle/nonempty-zipper"
 license: MIT
 author: "Freckle R&D"
@@ -30,4 +30,4 @@ tests:
     source-dirs: doctest
     dependencies:
       - Glob
-      - doctest
+      - doctest >0.16 && <0.19

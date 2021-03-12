@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3e71224ac7d3c5be9ab2a19099380109838c85aaabd975f2b98f0e1c39b879e5
+-- hash: c3eb3cf59b27cd5571cb8a14f57d93f4038e2d74cb0bdf38c7b0f2da9321353f
 
 name:           nonempty-zipper
-version:        1.0.0.0
+version:        1.0.0.1
 synopsis:       A non-empty comonadic list zipper
 description:    A non-empty comonadic list zipper
 category:       Data, Data Structures
@@ -55,6 +55,6 @@ test-suite doctest
     , base
     , comonad
     , deepseq
-    , doctest
+    , doctest >0.16 && <0.19
     , safe
   default-language: Haskell2010
