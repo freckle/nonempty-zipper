@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c3eb3cf59b27cd5571cb8a14f57d93f4038e2d74cb0bdf38c7b0f2da9321353f
+-- hash: 97855d5b76a57d6a6d4956a5d47a6daad1d80e00dbf2c212577a0a707d0724b6
 
 name:           nonempty-zipper
 version:        1.0.0.1
@@ -36,7 +36,7 @@ library
       library
   ghc-options: -Wall
   build-depends:
-      base
+      base <4.16
     , comonad
     , deepseq
     , safe
@@ -52,7 +52,7 @@ test-suite doctest
   ghc-options: -Wall
   build-depends:
       Glob
-    , base
+    , base <4.16
     , comonad
     , deepseq
     , doctest >0.16 && <0.19
