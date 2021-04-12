@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c3eb3cf59b27cd5571cb8a14f57d93f4038e2d74cb0bdf38c7b0f2da9321353f
+-- hash: e23e153e1f2182e82309d73a7d579fc446965060717cacda25755ba68c34260d
 
 name:           nonempty-zipper
-version:        1.0.0.1
+version:        1.0.0.2
 synopsis:       A non-empty comonadic list zipper
 description:    A non-empty comonadic list zipper
 category:       Data, Data Structures
@@ -36,7 +36,7 @@ library
       library
   ghc-options: -Wall
   build-depends:
-      base
+      base <5
     , comonad
     , deepseq
     , safe
@@ -52,7 +52,7 @@ test-suite doctest
   ghc-options: -Wall
   build-depends:
       Glob
-    , base
+    , base <5
     , comonad
     , deepseq
     , doctest >0.16 && <0.19
