@@ -1,5 +1,5 @@
 name: nonempty-zipper
-version: 1.0.0.1
+version: 1.0.0.2
 github: "freckle/nonempty-zipper"
 license: MIT
 author: "Freckle R&D"
@@ -14,7 +14,7 @@ synopsis: A non-empty comonadic list zipper
 description: A non-empty comonadic list zipper
 
 dependencies:
-  - base
+  - base < 5
   - comonad
   - safe
   - deepseq
