@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e23e153e1f2182e82309d73a7d579fc446965060717cacda25755ba68c34260d
+-- hash: 2f9513f285287b52f90373206de56f6159ff43752cb86393501836147d95d24f
 
 name:           nonempty-zipper
 version:        1.0.0.2
@@ -55,6 +55,6 @@ test-suite doctest
     , base <5
     , comonad
     , deepseq
-    , doctest >0.16 && <0.19
+    , doctest >0.16
     , safe
   default-language: Haskell2010
