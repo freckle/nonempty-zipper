@@ -30,4 +30,4 @@ tests:
     source-dirs: doctest
     dependencies:
       - Glob
-      - doctest >0.16 && <0.19
+      - doctest >0.16
