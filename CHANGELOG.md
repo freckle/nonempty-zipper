@@ -1,6 +1,10 @@
-## [_Unreleased_](https://github.com/freckle/nonempty-zipper/compare/v1.0.0.3...main)
+## [_Unreleased_](https://github.com/freckle/nonempty-zipper/compare/v1.0.0.4...main)
 
 None
+
+## [v1.0.0.4](https://github.com/freckle/nonempty-zipper/compare/v1.0.0.3...v1.0.0.4)
+
+- Support GHCs 9.0 and 9.2
 
 ## [v1.0.0.3](https://github.com/freckle/nonempty-zipper/compare/v1.0.0.2...v1.0.0.3)
 
