@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ca0682880c393ee880177637e51ac95c773d2fc16aa8d7d480b70d533ea2bcf6
+-- hash: 18ded8684197147c449f03ec518611248eb26e63552a671e6306df6ff37a6d65
 
 name:           nonempty-zipper
-version:        1.0.0.3
+version:        1.0.0.4
 synopsis:       A non-empty comonadic list zipper
 description:    A non-empty comonadic list zipper
 category:       Data, Data Structures
