@@ -129,7 +129,7 @@ right (Zipper ps curr ns) = do
   newCurr <- headMay ns
   pure $ Zipper (curr : ps) newCurr (fromMaybe [] $ tailMay ns)
 
--- | Move the current focus of the cursor to the first occurence of a value on the left
+-- | Move the current focus of the cursor to the first occurrence of a value on the left
 --
 -- >>> findLeft 2 . fromNonEmptyEnd $ NE.fromList [2, 1, 2, 1, 1, 3]
 -- Just (Zipper [1,2] 2 [1,1,3])
@@ -141,7 +141,7 @@ findLeft target z@(Zipper ps curr ns)
     [] -> Nothing
     (x : xs) -> findLeft target (Zipper xs x (curr : ns))
 
--- | Move the current focus of the cursor to the first occurence of a value on the right
+-- | Move the current focus of the cursor to the first occurrence of a value on the right
 --
 -- >>> findRight 3 . fromNonEmpty $ NE.fromList [2, 1, 3, 1, 1, 3]
 -- Just (Zipper [1,2] 3 [1,1,3])
@@ -185,7 +185,7 @@ toNonEmpty :: Zipper a -> NE.NonEmpty a
 toNonEmpty (Zipper ls x rs) = NE.fromList $ Prelude.reverse ls ++ [x] ++ rs
 
 
--- | Replace the current item under the curosr
+-- | Replace the current item under the cursor
 --
 -- >>> replace 4 . fromNonEmpty $ NE.fromList [1, 2, 3]
 -- Zipper [] 4 [2,3]
