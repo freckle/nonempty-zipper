@@ -1,6 +1,6 @@
 ## [_Unreleased_](https://github.com/freckle/nonempty-zipper/compare/v1.0.0.4...main)
 
-None
+- Add `leftN` and `rightN`
 
 ## [v1.0.0.4](https://github.com/freckle/nonempty-zipper/compare/v1.0.0.3...v1.0.0.4)
 

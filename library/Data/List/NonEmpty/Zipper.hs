@@ -14,6 +14,8 @@ module Data.List.NonEmpty.Zipper
   -- * Traversal
   , left
   , right
+  , leftN
+  , rightN
   , findLeft
   , findRight
   , start
@@ -43,6 +45,7 @@ import qualified Prelude
 
 import Control.Comonad
 import Control.DeepSeq (NFData)
+import Control.Monad (foldM)
 import qualified Data.List.NonEmpty as NE
 import Data.Maybe (fromMaybe)
 import GHC.Generics (Generic)
@@ -128,6 +131,31 @@ right :: Zipper a -> Maybe (Zipper a)
 right (Zipper ps curr ns) = do
   newCurr <- headMay ns
   pure $ Zipper (curr : ps) newCurr (fromMaybe [] $ tailMay ns)
+
+-- | Move the current focus of the cursor some distance to the left
+--
+-- Returns 'Nothing' if the requested movement distance is too great
+-- and the cursor falls off the left end of the zipper.
+--
+-- >>> leftN 2 . fromNonEmptyEnd $ NE.fromList [1..7]
+-- Just (Zipper [4,3,2,1] 5 [6,7])
+--
+leftN :: Word -> Zipper a -> Maybe (Zipper a)
+leftN = repeatedly left
+
+-- | Move the current focus of the cursor some distance to the right
+--
+-- Returns 'Nothing' if the requested movement distance is too great
+-- and the cursor falls off the right end of the zipper.
+--
+-- >>> rightN 2 . fromNonEmpty $ NE.fromList [1..7]
+-- Just (Zipper [2,1] 3 [4,5,6,7])
+--
+rightN :: Word -> Zipper a -> Maybe (Zipper a)
+rightN = repeatedly right
+
+repeatedly :: Monad f => (a -> f a) -> Word -> a -> f a
+repeatedly f n x = foldM (const . f) x [1 .. n]
 
 -- | Move the current focus of the cursor to the first occurrence of a value on the left
 --
