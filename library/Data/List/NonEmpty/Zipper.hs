@@ -1,6 +1,6 @@
-{-# LANGUAGE DeriveAnyClass #-}
-{-# LANGUAGE DeriveFunctor #-}
-{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveAnyClass     #-}
+{-# LANGUAGE DeriveFunctor      #-}
+{-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE DerivingStrategies #-}
 
 module Data.List.NonEmpty.Zipper
@@ -40,16 +40,16 @@ module Data.List.NonEmpty.Zipper
   )
 where
 
-import Prelude hiding (reverse)
+import           Prelude            hiding (reverse)
 import qualified Prelude
 
-import Control.Comonad
-import Control.DeepSeq (NFData)
-import Control.Monad (foldM)
+import           Control.Comonad
+import           Control.DeepSeq    (NFData)
+import           Control.Monad      (foldM)
 import qualified Data.List.NonEmpty as NE
-import Data.Maybe (fromMaybe)
-import GHC.Generics (Generic)
-import Safe (headMay, tailMay)
+import           Data.Maybe         (fromMaybe)
+import           GHC.Generics       (Generic)
+import           Safe               (headMay, tailMay)
 
 data Zipper a = Zipper [a] a [a]
   deriving stock (Eq, Show, Functor, Generic)
@@ -78,7 +78,7 @@ instance Comonad Zipper where
     let dupWith f r =
           case f r of
             Nothing -> [r]
-            Just x -> r : dupWith f x
+            Just x  -> r : dupWith f x
     in  Zipper
           (maybe [] (dupWith left) $ left z)
           z
@@ -158,7 +158,7 @@ findLeft :: Eq a => a -> Zipper a -> Maybe (Zipper a)
 findLeft target z@(Zipper ps curr ns)
   | curr == target = Just z
   | otherwise = case ps of
-      [] -> Nothing
+      []       -> Nothing
       (x : xs) -> findLeft target (Zipper xs x (curr : ns))
 
 -- | Move the current focus of the cursor to the first occurrence of a value on the right
@@ -169,7 +169,7 @@ findRight :: Eq a => a -> Zipper a -> Maybe (Zipper a)
 findRight target z@(Zipper ps curr ns)
   | curr == target = Just z
   | otherwise = case ns of
-      [] -> Nothing
+      []       -> Nothing
       (x : xs) -> findRight target (Zipper (curr : ps) x xs)
 
 -- | Move the current focus of the cursor to the start of the @'Zipper'@
@@ -219,7 +219,7 @@ replace x (Zipper ls _ rs) = Zipper ls x rs
 -- >>> delete . fromNonEmptyEnd $ NE.fromList [1, 2, 3]
 -- Just (Zipper [1] 2 [])
 delete :: Zipper a -> Maybe (Zipper a)
-delete (Zipper [] _ []) = Nothing
+delete (Zipper [] _ [])       = Nothing
 delete (Zipper ls _ (r : rs)) = Just $ Zipper ls r rs
 delete (Zipper (l : ls) _ rs) = Just $ Zipper ls l rs
 
@@ -238,7 +238,7 @@ push l (Zipper ls x rs) = Zipper (l : ls) x rs
 -- >>> pop . fromNonEmptyEnd $ NE.fromList [1, 2, 3]
 -- (Zipper [1] 3 [],Just 2)
 pop :: Zipper a -> (Zipper a, Maybe a)
-pop (Zipper [] x rs) = (Zipper [] x rs, Nothing)
+pop (Zipper [] x rs)       = (Zipper [] x rs, Nothing)
 pop (Zipper (l : ls) x rs) = (Zipper ls x rs, Just l)
 
 -- | Remove a value to the right of the cursor
@@ -249,7 +249,7 @@ pop (Zipper (l : ls) x rs) = (Zipper ls x rs, Just l)
 -- >>> shift . fromNonEmpty $ NE.fromList [1, 2, 3]
 -- (Zipper [] 1 [3],Just 2)
 shift :: Zipper a -> (Zipper a, Maybe a)
-shift (Zipper ls x []) = (Zipper ls x [], Nothing)
+shift (Zipper ls x [])       = (Zipper ls x [], Nothing)
 shift (Zipper ls x (r : rs)) = (Zipper ls x rs, Just r)
 
 -- | Insert a value to the right of the cursor
@@ -275,7 +275,7 @@ reverse (Zipper ls x rs) = Zipper rs x ls
 -- False
 isStart :: Zipper a -> Bool
 isStart (Zipper [] _ _) = True
-isStart _ = False
+isStart _               = False
 
 -- | Determine if the @'Zipper'@ is at the end
 --
@@ -286,4 +286,4 @@ isStart _ = False
 -- False
 isEnd :: Zipper a -> Bool
 isEnd (Zipper _ _ []) = True
-isEnd _ = False
+isEnd _               = False
