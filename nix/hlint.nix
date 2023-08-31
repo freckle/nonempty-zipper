@@ -2,5 +2,5 @@
 let
   pkgs = nixpkgs.stable;
 in
-  pkgs.haskell.lib.justStaticExecutables
-   nixpkgs.stable.hlint
+pkgs.haskell.lib.justStaticExecutables
+  nixpkgs.stable.hlint
