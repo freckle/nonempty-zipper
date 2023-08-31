@@ -132,7 +132,6 @@ right (Zipper ps curr ns) = do
 --
 -- >>> leftN 2 . fromNonEmptyEnd $ NE.fromList [1..7]
 -- Just (Zipper [4,3,2,1] 5 [6,7])
---
 leftN :: Word -> Zipper a -> Maybe (Zipper a)
 leftN = repeatedly left
 
@@ -143,7 +142,6 @@ leftN = repeatedly left
 --
 -- >>> rightN 2 . fromNonEmpty $ NE.fromList [1..7]
 -- Just (Zipper [2,1] 3 [4,5,6,7])
---
 rightN :: Word -> Zipper a -> Maybe (Zipper a)
 rightN = repeatedly right
 
