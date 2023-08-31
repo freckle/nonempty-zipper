@@ -1,0 +1,6 @@
+restylers:
+  - fourmolu:
+      image:
+        tag: v0.13.0.0
+      include:
+        - '**/*.hs'
