@@ -16,6 +16,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - if: steps.tag.outputs.tag
-        uses: freckle/stack-upload-action@v2
+        run: stack upload --pvp-bounds lower .
         env:
           HACKAGE_API_KEY: ${{ secrets.HACKAGE_UPLOAD_API_KEY }}

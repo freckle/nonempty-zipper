@@ -1,2 +1,0 @@
-{ nixpkgs }:
-nixpkgs.stable.stack

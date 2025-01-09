@@ -1,1 +1,4 @@
+.direnv
+.envrc
 .stack-work
+*.lock
