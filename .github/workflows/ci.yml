@@ -26,8 +26,8 @@ jobs:
         with:
           stack-yaml: ${{ matrix.stack-yaml }}
       - uses: freckle/stack-action@v5
-        with:
-          stack-yaml: ${{ matrix.stack-yaml }}
+        env:
+          STACK_YAML: ${{ matrix.stack-yaml }}
 
   lint:
     runs-on: ubuntu-latest
@@ -46,6 +46,7 @@ jobs:
         with:
           stack-yaml: stack-nightly.yaml
       - uses: freckle/stack-action@v5
+        env:
+          STACK_YAML: stack-nightly.yaml
         with:
-          stack-yaml: stack-nightly.yaml
           stack-arguments: --resolver nightly
