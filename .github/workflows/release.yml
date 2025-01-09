@@ -18,4 +18,4 @@ jobs:
       - if: steps.tag.outputs.tag
         run: stack upload --pvp-bounds lower .
         env:
-          HACKAGE_API_KEY: ${{ secrets.HACKAGE_UPLOAD_API_KEY }}
+          HACKAGE_KEY: ${{ secrets.HACKAGE_UPLOAD_API_KEY }}
