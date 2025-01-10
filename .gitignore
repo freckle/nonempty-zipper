@@ -2,3 +2,4 @@
 .envrc
 .stack-work
 stack-*.lock
+stack.*.lock
