@@ -1,13 +1,13 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.4.
+-- This file has been generated from package.yaml by hpack version 0.37.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 18ded8684197147c449f03ec518611248eb26e63552a671e6306df6ff37a6d65
+-- hash: f863977dc26b4f6b191d37c43eaa025f7f06a6aff4948ecbd68be017c4f15810
 
 name:           nonempty-zipper
-version:        1.0.0.4
+version:        1.0.1.0
 synopsis:       A non-empty comonadic list zipper
 description:    A non-empty comonadic list zipper
 category:       Data, Data Structures
