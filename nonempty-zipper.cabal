@@ -7,7 +7,7 @@ cabal-version: 1.12
 -- hash: f863977dc26b4f6b191d37c43eaa025f7f06a6aff4948ecbd68be017c4f15810
 
 name:           nonempty-zipper
-version:        1.0.1.0
+version:        1.0.1.1
 synopsis:       A non-empty comonadic list zipper
 description:    A non-empty comonadic list zipper
 category:       Data, Data Structures
