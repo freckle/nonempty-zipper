@@ -1,4 +1,8 @@
-## [_Unreleased_](https://github.com/freckle/nonempty-zipper/compare/v1.0.1.0...main)
+## [_Unreleased_](https://github.com/freckle/nonempty-zipper/compare/v1.0.1.1...main)
+
+## [v1.0.1.1](https://github.com/freckle/nonempty-zipper/compare/v1.0.1.0...v1.0.1.1)
+
+- Relax dependency bounds
 
 ## [v1.0.1.0](https://github.com/freckle/nonempty-zipper/compare/v1.0.0.4...v1.0.1.0)
 
