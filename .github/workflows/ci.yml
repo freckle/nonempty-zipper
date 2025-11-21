@@ -12,7 +12,7 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - id: generate
         uses: freckle/stack-action/generate-matrix@v5
     outputs:
@@ -28,7 +28,7 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: freckle/stack-cache-action@v2
         with:
           stack-yaml: ${{ matrix.stack-yaml }}
@@ -39,7 +39,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: rwe/actions-hlint-setup@v1
       - uses: rwe/actions-hlint-run@v2
         with:
@@ -48,7 +48,7 @@ jobs:
   nightly:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: freckle/stack-cache-action@v2
         with:
           stack-yaml: stack-nightly.yaml
