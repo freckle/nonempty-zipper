@@ -29,7 +29,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
-      - uses: freckle/stack-cache-action@v2
+      - uses: freckle/stack-cache-action@v3.0.0
         with:
           stack-yaml: ${{ matrix.stack-yaml }}
       - uses: freckle/stack-action@v5
@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: freckle/stack-cache-action@v2
+      - uses: freckle/stack-cache-action@v3.0.0
         with:
           stack-yaml: stack-nightly.yaml
       - uses: freckle/stack-action@v5
